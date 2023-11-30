@@ -1732,6 +1732,14 @@
   resolved "https://registry.npmjs.org/@sinclair/typebox/-/typebox-0.27.8.tgz"
   integrity sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==
 
+"@storybook/addon-a11y@^7.6.1":
+  version "7.6.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-7.6.1.tgz#5be49ca3226cae5d05616613d4cab2e79405b0f6"
+  integrity sha512-w6lQbU/+uMc0J2vtHmChE7P9L1kRkCRrr6ZwYhkysvDj4PWF74CrbMGNAtHu6TYm+7rFsuJD8kQGYPge1Bng2Q==
+  dependencies:
+    "@storybook/addon-highlight" "7.6.1"
+    axe-core "^4.2.0"
+
 "@storybook/addon-actions@7.5.2":
   version "7.5.2"
   resolved "https://registry.npmjs.org/@storybook/addon-actions/-/addon-actions-7.5.2.tgz"
@@ -1841,6 +1849,13 @@
     "@storybook/core-events" "7.5.2"
     "@storybook/global" "^5.0.0"
     "@storybook/preview-api" "7.5.2"
+
+"@storybook/addon-highlight@7.6.1":
+  version "7.6.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-highlight/-/addon-highlight-7.6.1.tgz#387e2e72e5955225ece1e0e4588b64c17295a080"
+  integrity sha512-NcaIQA1clfKY8P13PlL7yypASaxNcLQ3+fjYa6ysS1dnXw4dV2ecPpYQD8/+sUXOTVtbSdtlVZIvPlmKrO2c5g==
+  dependencies:
+    "@storybook/global" "^5.0.0"
 
 "@storybook/addon-interactions@^7.5.2":
   version "7.5.2"
@@ -3140,6 +3155,11 @@ available-typed-arrays@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
+
+axe-core@^4.2.0:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.8.2.tgz#2f6f3cde40935825cf4465e3c1c9e77b240ff6ae"
+  integrity sha512-/dlp0fxyM3R8YW7MFzaHWXrf4zzbr0vaYb23VBFCl83R7nWNPg/yaQw2Dc8jzCMmDVLhSdzH8MjrsuIUuvX+6g==
 
 babel-core@^7.0.0-bridge.0:
   version "7.0.0-bridge.0"
