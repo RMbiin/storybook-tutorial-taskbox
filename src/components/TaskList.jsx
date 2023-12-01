@@ -42,7 +42,7 @@ export default function TaskList() {
     </div>
   );
 
-  if (loading) {
+  if (status === "loading") {
     return (
       <div className="list-items" data-testid="loading" key={"loading"}>
         {LoadingRow}
@@ -58,7 +58,7 @@ export default function TaskList() {
 
   if (tasks.length === 0) {
     return (
-      <div className="list-items">
+      <div className="list-items" key={"empty"} data-test-id="empty">
         <div className="wrapper-message">
           <span className="icon-check" />
           <p className="title-message">You have no tasks</p>
@@ -69,7 +69,7 @@ export default function TaskList() {
   }
 
   return (
-    <div className="list-items">
+    <div className="list-items" data-testid="success" key={"success"}>
       {tasks.map((task) => (
         <Task
           key={task.id}
