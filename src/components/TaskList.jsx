@@ -6,6 +6,11 @@ import { updateTaskState } from "../lib/store";
 import Task from "./Task";
 
 export default function TaskList() {
+  const events = {
+    onPinTask,
+    onArchiveTask,
+  };
+
   // We're retrieving our state from the store
   const tasks = useSelector((state) => {
     const tasksInOrder = [
