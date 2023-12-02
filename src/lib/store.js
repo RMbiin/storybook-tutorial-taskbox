@@ -13,15 +13,9 @@ import {
  * The initial state of our store when the app loads.
  * Usually, you would fetch this from a server. Let's not worry about that now
  */
-const defaultTasks = [
-  { id: "1", title: "Something", state: "TASK_INBOX" },
-  { id: "2", title: "Something more", state: "TASK_INBOX" },
-  { id: "3", title: "Something else", state: "TASK_INBOX" },
-  { id: "4", title: "Something again", state: "TASK_INBOX" },
-];
 
 const TaskBoxData = {
-  tasks: defaultTasks,
+  tasks: [],
   status: "idle",
   error: null,
 };
@@ -68,13 +62,15 @@ const TasksSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchTasks.pending, (state) => {
-        (state.status = "loading"), (state.error = null);
+        state.status = "loading";
+        state.error = null;
         state.tasks = [];
       })
       .addCase(fetchTasks.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.error = null;
-        state.tasks = [];
+        // Add any fetched tasks to the array
+        state.tasks = action.payload;
       })
       .addCase(fetchTasks.rejected, (state) => {
         state.status = "failed";

@@ -14,7 +14,7 @@ Default.args = {
   task: {
     id: "1",
     title: "Test Task",
-    state: "TASK_INVOX",
+    state: "TASK_INBOX",
     updatedAt: new Date(),
   },
 };

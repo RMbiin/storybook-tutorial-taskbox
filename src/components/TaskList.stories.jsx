@@ -21,7 +21,7 @@ export const MockedState = {
 };
 
 // A super-simple mock of a redux store
-const Mockstore = ({ taskboxState, children }) => (
+const MockStore = ({ taskboxState, children }) => (
   <Provider
     store={configureStore({
       reducer: {
@@ -48,18 +48,18 @@ const Mockstore = ({ taskboxState, children }) => (
 export default {
   component: TaskList,
   title: "TaskList",
-  decorators: [(story) => <div style={{ padding: "3rem" }}>{story()}</div>],
   tags: ["autodocs"],
-  exclueStories: /.*MockedState$/,
+  decorators: [(story) => <div style={{ padding: "3rem" }}>{story()}</div>],
+  excludeStories: /.*MockedState$/,
 };
 
 export const Default = {
   decorators: [
-    (story) => <Mockstore taskboxState={MockedState}>{story()}</Mockstore>,
+    (story) => <MockStore taskboxState={MockedState}>{story()}</MockStore>,
   ],
 };
 
-export const WithPinnedTasks = {
+export const WithPinnedTask = {
   decorators: [
     (story) => {
       const pinnedtasks = [
@@ -68,14 +68,9 @@ export const WithPinnedTasks = {
       ];
 
       return (
-        <Mockstore
-          taskboxState={{
-            ...MockedState,
-            tasks: pinnedtasks,
-          }}
-        >
+        <MockStore taskboxState={{ ...MockedState, tasks: pinnedtasks }}>
           {story()}
-        </Mockstore>
+        </MockStore>
       );
     },
   ],
@@ -84,14 +79,14 @@ export const WithPinnedTasks = {
 export const Loading = {
   decorators: [
     (story) => (
-      <Mockstore
+      <MockStore
         taskboxState={{
           ...MockedState,
           status: "loading",
         }}
       >
         {story()}
-      </Mockstore>
+      </MockStore>
     ),
   ],
 };
@@ -99,9 +94,14 @@ export const Loading = {
 export const Empty = {
   decorators: [
     (story) => (
-      <Mockstore taskboxState={{ ...MockedState, tasks: [] }}>
+      <MockStore
+        taskboxState={{
+          ...MockedState,
+          tasks: [],
+        }}
+      >
         {story()}
-      </Mockstore>
+      </MockStore>
     ),
   ],
 };

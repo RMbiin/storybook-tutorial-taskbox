@@ -1,16 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
+import Task from "./Task";
 import { useDispatch, useSelector } from "react-redux";
 import { updateTaskState } from "../lib/store";
 
-import Task from "./Task";
-
 export default function TaskList() {
-  const events = {
-    onPinTask,
-    onArchiveTask,
-  };
-
   // We're retrieving our state from the store
   const tasks = useSelector((state) => {
     const tasksInOrder = [
@@ -56,25 +49,24 @@ export default function TaskList() {
         {LoadingRow}
         {LoadingRow}
         {LoadingRow}
-        {LoadingRow}
       </div>
     );
   }
 
   if (tasks.length === 0) {
     return (
-      <div className="list-items" key={"empty"} data-test-id="empty">
+      <div className="list-items" key={"empty"} data-testid="empty">
         <div className="wrapper-message">
           <span className="icon-check" />
           <p className="title-message">You have no tasks</p>
-          <p className="subtitle-message">Sit back and relax</p>
+          <p className="subtitle-messgae">Sit back and relax</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="list-items" data-testid="success" key={"success"}>
+    <div className="list-items">
       {tasks.map((task) => (
         <Task
           key={task.id}
@@ -86,18 +78,3 @@ export default function TaskList() {
     </div>
   );
 }
-
-TaskList.propTypes = {
-  /** Checks if it's in loading state */
-  loading: PropTypes.bool,
-  /** The list of tasks */
-  tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
-  /** Event to change the task to pinned */
-  onPinTask: PropTypes.func,
-  /** Event to change the task to archived */
-  onArchiveTask: PropTypes.func,
-};
-
-TaskList.defaultProps = {
-  loading: false,
-};
